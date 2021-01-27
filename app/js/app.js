@@ -2,13 +2,13 @@ const $vidgetAdd = document.querySelector('.vidget-add')
 const $sidebar = document.querySelector('.sidebar')
 
 class Themes {
-	constructor(name) {
-		this.name = name
+	constructor(selector) {
+		this.$el = document.querySelector('.themes')
 	}
 
 
 	open() {
-		document.querySelector('.themes').addEventListener('click', e => {
+		this.$el.addEventListener('click', e => {
 			if (e.target.nextElementSibling && e.target.nextElementSibling.classList.contains('themes__list')){
 				if (e.target.nextElementSibling.classList.contains('themes__list--hide')){
 					e.target.nextElementSibling.classList.remove('themes__list--hide')
@@ -27,4 +27,4 @@ class Themes {
 }
 
 
-const learnJs = new Themes().open()
+const learnJs = new Themes()
