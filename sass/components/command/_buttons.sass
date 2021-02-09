@@ -4,7 +4,10 @@
 	border: none
 	cursor: pointer
 	padding: 0
-	transition: .3s
 	background: none
 	&:active
-		transform: scale(.98)
+
+.toggle-sidebar
+	transform: rotate(180deg)
+	&.open
+		transform: rotate(0)

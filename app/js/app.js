@@ -1,30 +1,13 @@
-const $vidgetAdd = document.querySelector('.vidget-add')
-const $sidebar = document.querySelector('.sidebar')
+const toggleSidebar = () => {
+	let $sidebar = document.querySelector('.sidebar')
+	let $btn = document.querySelector('.toggle-sidebar')
 
-class Themes {
-	constructor(selector) {
-		this.$el = document.querySelector('.themes')
-	}
-
-
-	open() {
-		this.$el.addEventListener('click', e => {
-			if (e.target.nextElementSibling && e.target.nextElementSibling.classList.contains('themes__list')){
-				if (e.target.nextElementSibling.classList.contains('themes__list--hide')){
-					e.target.nextElementSibling.classList.remove('themes__list--hide')
-					e.target.nextElementSibling.classList.add('themes__list--open')
-				} else {
-					e.target.nextElementSibling.classList.remove('themes__list--open')
-					e.target.nextElementSibling.classList.add('themes__list--hide')
-				}
-			}
-		})
-	}
-
-	close() {
-		alert('CLOSE')
-	}
+	$btn.addEventListener('click', (e) => {
+		$sidebar.classList.contains('open') ? $sidebar.classList.remove('open') : $sidebar.classList.add('open')
+		e.target.classList.toggle('open')
+	})
 }
 
-
-const learnJs = new Themes()
+document.addEventListener("DOMContentLoaded", () => {
+	toggleSidebar()
+})
